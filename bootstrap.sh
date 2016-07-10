@@ -17,7 +17,7 @@
 ############################  SETUP PARAMETERS
 app_name='spf13-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.spf13-vim-3"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/spf13/spf13-vim.git'
+[ -z "$REPO_URI" ] && REPO_URI='https://github.com/bucketzxm/spf13-vim.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0'
 debug_mode='0'
 fork_maintainer='0'
@@ -178,6 +178,14 @@ setup_vundle() {
 variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
+
+# install vim-gtk for ubutnu
+distribution=`cat /proc/version | grep Ubuntu`;
+
+if [[ $distribution =~ .*Ubuntu.* ]]
+then
+    sudo apt-get install vim-gtk vim-gnome -y
+fi
 
 do_backup       "$HOME/.vim" \
                 "$HOME/.vimrc" \
