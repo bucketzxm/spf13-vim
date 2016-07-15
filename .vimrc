@@ -629,12 +629,23 @@
         if !has('python') && !has('python3')
             let g:pymode = 0
         endif
-
+        
         if isdirectory(expand("~/.vim/bundle/python-mode"))
             let g:pymode_lint_checkers = ['pyflakes']
             let g:pymode_trim_whitespaces = 0
             let g:pymode_options = 0
             let g:pymode_rope = 0
+            let g:syntastic_python_python_exec = 'python3'
+            "let g:pymode_python = 'python3'
+            "let g:pymode_folding = 1
+            "let g:pymode_motion = 1
+            "let g:pymode_doc = 1
+            "let g:pymode_doc_bind = 'K'
+            "let g:pymode_virtualenv_path=$VIRTUAL_ENV
+
+            "let g:pymode_run = 1
+            "let g:pymode_run_bind = '<leader>r'
+
         endif
     " }
 
